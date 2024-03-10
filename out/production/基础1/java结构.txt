@@ -1,0 +1,7 @@
+JVM java虚拟机 用于在内存中开辟一片空间，并将编写好的java文件(.java)翻译为字节码文件(.class)。
+
+JRE java运行环境 包含JVM,用于提供运行环境让字节码文件运行。
+
+JDK java开发工具 包含JRE 对软件进行开发和测试、运行。
+
+JDK 包含 JRE 包含 JVM

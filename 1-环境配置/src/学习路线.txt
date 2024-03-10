@@ -1,0 +1,19 @@
+java:
+    面向对象,集合,I/O,线程,反射,注解,网络协议
+
+数据库:
+    Mysql，Redis
+
+企业级开发:
+    HTML,CSS,JavaScript,
+    Servlet,JSP,JSTL,AJAX。
+
+    Linux,Maven,Spring,SpringMVC,MyBatis
+
+校招:操作系统,编译原理,计算机组成原理,算法,数据结构,通信原理
+
+互联网开发(社招):
+    SpringBoot,SpringCloud,
+    Dubbo,MQ,Kafka,Docker
+
+    Hadoop,Spark,Python
