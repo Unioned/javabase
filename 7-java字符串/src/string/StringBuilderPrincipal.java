@@ -1,7 +1,7 @@
 package string;
 
 //字符串底层原理
-public class StringBuilder {
+public class StringBuilderPrincipal {
     public static void main(String[] args) {
         //StringBuilder底层扩容机制:
         //1.首先容量默认为16,长度为0
