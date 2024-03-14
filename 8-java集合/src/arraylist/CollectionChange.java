@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class CollectionChange {
 
     public static void main(String[] args) {
-        listToSet();
+        listToMap();
     }
 
     /**
@@ -69,20 +69,22 @@ public class CollectionChange {
      * Set --> List
      * Set 集合转 List 集合类似，直接 new 一个 List 对象，将 set 集合放入即可
       */
-//    private static void setToList(){
-//        Set<String> set = new HashSet<>();
-//        for (int i = 0; i < 4; i++) {
-//            set.add("String number: "+i);
-//        }
-//        List<String> list = new ArrayList<>(set);
-//        System.out.println(list);
-//        List<String> streamList = set.stream().toList();
-//        System.out.println(streamList);
-//    }
+    private static void setToList(){
+        Set<String> set = new HashSet<>();
+        for (int i = 0; i < 4; i++) {
+            set.add("String number: "+i);
+        }
+        //方式1
+        List<String> list = new ArrayList<>(set);
+        System.out.println(list);
+        //方式2
+        List<String> streamList = set.stream().toList();
+        System.out.println(streamList);
+    }
 
     /**
      * List --> Map
-     * 如果我们的 List 存放的对象，我们想要将其转化为 Map 集合，key为对象的某个属性。(使用Stream流实现)，自动通过key去重，去最后一个重复的。
+     * 如果我们的 List 存放的对象，我们想要将其转化为 Map 集合，key为对象的某个属性。(使用Stream流实现)，自动通过key去重，取最后一个重复的。
      */
     private static void listToMap(){
         List<User> list = new ArrayList<>();
@@ -99,41 +101,43 @@ public class CollectionChange {
     /**
      * Map --> List/Set
      */
-//    private static void mapToListOrSet(){
-//        Map<Integer, User> map = new HashMap<>();
-//        for (int i = 0; i < 4; i++) {
-//            map.put(i,new User(i,"张三-"+i));
-//        }
-//        System.out.println(map);
-//        // 直接获取map的key的set集合
-//        Set<Integer> set1 = map.keySet();
-//        System.out.println(set1);
-//        // 将map的values 转换为Set集合
-//        Set<User> set = new HashSet<>(map.values());
-//        System.out.println(set);
-//        // 将map的key 转换为List集合
-//        List<Integer> integers = map.keySet().stream().toList();
-//        System.out.println(integers);
-//        // 将map的values 转换为List集合
-//        List<User> list = new ArrayList<>(map.values());
-//        System.out.println(list);
-//    }
+    private static void mapToListOrSet(){
+        Map<Integer, User> map = new HashMap<>();
+        for (int i = 0; i < 4; i++) {
+            map.put(i,new User(i,"张三-"+i));
+        }
+        System.out.println(map);
+        // 直接获取map的key的set集合
+        Set<Integer> set1 = map.keySet();
+        System.out.println(set1);
+        // 将map的values 转换为Set集合
+        Set<User> set = new HashSet<>(map.values());
+        System.out.println(set);
+        // 将map的key 转换为List集合
+        List<Integer> integers = map.keySet().stream().toList();
+        System.out.println(integers);
+        // 将map的values 转换为List集合
+        List<User> list = new ArrayList<>(map.values());
+        System.out.println(list);
+    }
 
     /**
      * List --> List/Set
      * List1 集合存放是对象，我们希望直接从集合里获取到 对象的某个属性的 List2  集合 (使用Stream流实现)
      */
-//    private static void listToList(){
-//        List<User> list = new ArrayList<>();
-//        for (int i = 0; i < 4; i++) {
-//            list.add(new User(i,"zhang"+i));
-//        }
-//        // 获取到 name的list集合
-//        List<String> list1 = list.stream().map(User::getName).toList();
-//        // 获取到 name的set集合
-//        Set<String> set = list.stream().map(User::getName).collect(Collectors.toSet());
-//        System.out.println(list1);
-//        System.out.println(set);
-//    }
+    private static void listToList(){
+        List<User> list = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            list.add(new User(i,"zhang"+i));
+        }
+
+        list.stream().map(user -> user.getName()).toList();
+        // 获取到 name的list集合
+        List<String> list1 = list.stream().map(User::getName).toList();
+        // 获取到 name的set集合
+        Set<String> set = list.stream().map(User::getName).collect(Collectors.toSet());
+        System.out.println(list1);
+        System.out.println(set);
+    }
 
 }
